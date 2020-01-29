@@ -57,7 +57,7 @@ An easy way to test whether your installation is working is by running the follo
 python3 -m manim example_scenes.py SquareToCircle -pl
 ```
 
-The -p frag in the command above stands for previewing. The -l frag is for faster rendering with lower quality.
+The -p flag in the command above stands for previewing. The -l flag is for faster rendering with lower quality.
 
 ## Live Streaming
 
@@ -106,7 +106,7 @@ Lets break this down step-by-step:
 * Inside the class you need to create the construct method. The construct method is essentially the main method for the class. In it you can write all the code for the animation.
 * Inside the construct method I first created two MObjects (Manim Objects) – a circle and a square. Lastly I displayed the shapes using the play method.
 
-We can also modify the appearence of the objects by adding a few lines of code:
+We can also modify the appearance of the objects by adding a few lines of code:
 
 ```python
 from manimlib.imports import *
@@ -202,7 +202,7 @@ class displayEquations(Scene):
 
 ## Creating graphs
 
-Manim also allows us to create and display graphs. For this you need to create a class that inherits from the GraphScene class. Furthermore, you need to specify a config dictionary that contains the most basic configures of the graph.
+Manim also allows us to create and display graphs. For this you need to create a class that inherits from the GraphScene class. Furthermore, you need to specify a config dictionary that contains the most basic configuration of the graph.
 
 The defaults look as follows:
 

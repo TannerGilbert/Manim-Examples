@@ -4,7 +4,15 @@
 
 ## Table of Contents
 
-TODO
+* [Installation](#Installation)
+    * [Linux Installation](#linux-installation)
+    * [Windows Installation](#windows-installation)
+* [Running Manim projects](#running-manim-projects)
+* [Live Streaming](#live-streaming)
+* [Creating your first Scene](#creating-your-first-scene)
+* [Displaying text](#displaying-text)
+* [Math equations](#math-equations)
+* [Creating graphs](#creating-graphs)
 
 ## Installation
 

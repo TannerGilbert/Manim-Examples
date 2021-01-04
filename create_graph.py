@@ -1,15 +1,17 @@
-from manimlib.imports import *
+from manim import *
 
 
 class CreateGraph(GraphScene):
-    CONFIG = {
-        'x_min': -3,
-        'x_max': 3,
-        'y_min': -5,
-        'y_max': 5,
-        'graph_origin': ORIGIN,
-        'axes_color': BLUE
-    }
+    def __init__(self, **kwargs):
+        GraphScene.__init__(
+            self,
+            x_min=-3,
+            x_max=3,
+            y_min=-5,
+            y_max=5,
+            graph_origin=ORIGIN,
+            axes_color=BLUE
+        )
 
     def construct(self):
         # Create Graph

@@ -1,4 +1,4 @@
-from manimlib.imports import *
+from manim import *
 
 class SquareToCircleWithModifications(Scene):
     def construct(self):

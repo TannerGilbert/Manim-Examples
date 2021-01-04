@@ -1,12 +1,12 @@
-from manimlib.imports import *
+from manim import *
 
 
 class displayText(Scene):
     def construct(self):
-        # Create TextMobjects
-        first_line = TextMobject('Create cool animations')
-        second_line = TextMobject('using Manim')
-        third_line = TextMobject('Try it out yourself.', color=RED)
+        # Create Text objects
+        first_line = Text('Create cool animations')
+        second_line = Text('using Manim')
+        third_line = Text('Try it out yourself.', color=RED)
 
         # Position second line underneath first line
         second_line.next_to(first_line, DOWN)

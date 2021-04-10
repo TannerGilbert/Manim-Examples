@@ -105,7 +105,7 @@ Math equations can be written in Manim using [LaTeX](https://www.latex-project.o
 
 I won't go over LaTeX in this article but if you are curious there are lots of great tutorials out there. 
 
-For qquations instead of using a `Text` object you need to use a `Tex` object. When making an equation you need to put a $ at the start and end of the text.
+For equations instead of using a `Text` object you need to use a `Tex` object. When making an equation you need to put a $ at the start and end of the text.
 
 ```python
 text = Text('some text')

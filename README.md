@@ -7,8 +7,6 @@
 * [Installation](#Installation)
     * [Linux Installation](#linux-installation)
     * [Windows Installation](#windows-installation)
-* [Running Manim projects](#running-manim-projects)
-* [Live Streaming](#live-streaming)
 * [Creating your first Scene](#creating-your-first-scene)
 * [Displaying text](#displaying-text)
 * [Math equations](#math-equations)
@@ -16,7 +14,7 @@
 
 ## Installation
 
-For installing Manim on your system I recommend following the [Installation guide](https://docs.manim.community/en/v0.2.0/installation.html) from the [Manim documentation](https://docs.manim.community/en/v0.2.0/index.html).
+For installing Manim on your system I recommend following the [Installation guide](https://docs.manim.community/en/stable/installation.html) from the [Manim documentation](https://docs.manim.community/en/stable/index.html).
 
 ## Creating your first Scene
 
@@ -32,7 +30,7 @@ class SquareToCircle(Scene):
         square = Square()
 
         #Showing shapes
-        self.play(ShowCreation(square))
+        self.play(Create(square))
         self.play(Transform(square, circle))
         self.play(FadeOut(square))
 ```
@@ -62,7 +60,7 @@ class SquareToCircleWithModifications(Scene):
         square.rotate(-3 * TAU / 8)
         circle.set_fill(PINK, opacity=0.5)
 
-        self.play(ShowCreation(square))
+        self.play(Create(square))
         self.play(Transform(square, circle))
         self.play(FadeOut(square))
 ```
@@ -145,35 +143,29 @@ class displayEquations(Scene):
 
 ## Creating graphs
 
-Manim also allows us to create and display graphs. For this you need to create a class that inherits from the GraphScene class.
+Manim also allows us to create and display graphs.
 
 ```python
 from manim import *
 
 
-class CreateGraph(GraphScene):
-    def __init__(self, **kwargs):
-        GraphScene.__init__(
-            self,
-            x_min=-3,
-            x_max=3,
-            y_min=-5,
-            y_max=5,
-            graph_origin=ORIGIN,
-            axes_color=BLUE
+class CreateGraph(Scene):
+    def construct(self):
+        axes = Axes(
+            x_range=[-3, 3],
+            y_range=[-5, 5],
+            axis_config={"color": BLUE},
         )
 
-    def construct(self):
         # Create Graph
-        self.setup_axes(animate=True)
-        graph = self.get_graph(lambda x: x**2, WHITE)
-        graph_label = self.get_graph_label(graph, label='x^{2}')
+        graph = axes.get_graph(lambda x: x**2, color=WHITE)
+        graph_label = axes.get_graph_label(graph, label='x^{2}')
 
-        graph2 = self.get_graph(lambda x: x**3, WHITE)
-        graph_label2 = self.get_graph_label(graph2, label='x^{3}')
+        graph2 = axes.get_graph(lambda x: x**3, color=WHITE)
+        graph_label2 = axes.get_graph_label(graph2, label='x^{3}')
 
         # Display graph
-        self.play(ShowCreation(graph), Write(graph_label))
+        self.play(Create(axes), Create(graph), Write(graph_label))
         self.wait(1)
         self.play(Transform(graph, graph2), Transform(graph_label, graph_label2))
         self.wait(1)
@@ -181,9 +173,9 @@ class CreateGraph(GraphScene):
 
 [![Manim display text](https://img.youtube.com/vi/I0MwXnKSIAM/maxresdefault.jpg)](https://youtu.be/I0MwXnKSIAM)
 
-As you can see to create a graph you need to create a method that returns a y value for every x value it gets. In the code above I used lambda functions to specify them but you can also use any other method. After you have created the method you need to pass it to self.get_graph, which creates a mobject out of the method.
+As you can see to create a graph you need to create a method that returns a y value for every x value it gets. In the code above I used lambda functions to specify them but you can also use any other method. After you have created the method you need to pass it to `axes.get_graph`, which creates a mobject out of the method.
 
-Note that the method only specifies how the graph should look like and doesn't actually calculate any values yet. The amount of points, which are calculated are determined by the config specified inside the `__init__` method.
+> Note that the method only specifies how the graph should look like and doesn't actually calculate any values yet.
 
 ## Author
  **Gilbert Tanner**

@@ -7,6 +7,6 @@ class SquareToCircle(Scene):
         square = Square()
 
         #Showing shapes
-        self.play(ShowCreation(square))
+        self.play(Create(square))
         self.play(Transform(square, circle))
         self.play(FadeOut(square))
